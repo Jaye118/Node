@@ -89,7 +89,7 @@ function totaltask (req, res, next) {
                 if (body.data) {
                     returnJSON.data.triageNum  = body.data.list.length;  
                 }
-                resolve();
+                resolve();// 这样写是错误的，需要resolve出body，见优化版
             }
         };
         httpClient(opt);
@@ -103,10 +103,5 @@ function totaltask (req, res, next) {
 }
 
 module.exports = {
-    userinfo: userinfo,
-    usertoken:usertoken,
-    tenantIdresources:tenantIdresources,
-    userresources:userresources,
-    test:test,
     totaltask:totaltask
 }
